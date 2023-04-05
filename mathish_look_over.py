@@ -65,3 +65,42 @@ scrambll('rkqodlw', 'world')
 end_time = time.time()
 total_time = end_time - start_time
 print(f'total time : {total_time}')
+
+class add(int):
+    def __call__(self,n):
+        return add(self+n)
+
+print(add(1)(2))
+
+
+def move_zeross(lst):
+    zeros = []
+    not_zeros = []
+    for nums in lst:
+        if nums == 0:
+            zeros.append(nums)
+        else:
+            not_zeros.append(nums)
+    return not_zeros + zeros
+    
+def move_zeros(lst):
+    return sorted(lst, key=lambda x: x == 0)
+
+print(move_zeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1]))
+print(move_zeros([9, 0, 0, 9, 1, 2, 0, 1, 0, 1, 0, 3, 0, 1, 9, 0, 0, 0, 0, 9]))
+
+def cakes(recipe, available):
+    default = []
+    for r in recipe:
+        if r not in available:
+            return 0
+        else:
+             default.append(available[r]/recipe[r])
+    return int(min(default))
+                
+def cakes_better(recipe, available):
+	return min(available.get(k, 0)/recipe[k] for k in recipe)
+
+print(cakes({"flour": 500, "sugar": 200, "eggs": 1}, {"flour": 1200, "sugar": 1200, "eggs": 5, "milk": 200}))
+
+print(cakes({"apples": 3, "flour": 300, "sugar": 150, "milk": 100, "oil": 100},{"sugar": 500, "flour": 2000, "milk": 2000}))
