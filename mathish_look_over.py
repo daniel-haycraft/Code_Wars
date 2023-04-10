@@ -104,3 +104,12 @@ def cakes_better(recipe, available):
 print(cakes({"flour": 500, "sugar": 200, "eggs": 1}, {"flour": 1200, "sugar": 1200, "eggs": 5, "milk": 200}))
 
 print(cakes({"apples": 3, "flour": 300, "sugar": 150, "milk": 100, "oil": 100},{"sugar": 500, "flour": 2000, "milk": 2000}))
+
+from ipaddress import ip_address
+
+def ips_between(start, end):
+    x= int(ip_address(end)) 
+    y = int(ip_address(start))
+    return x -y
+print(ips_between("10.0.0.0", "10.0.0.50"))
+print(ips_between("20.0.0.10", "20.0.1.0"))
