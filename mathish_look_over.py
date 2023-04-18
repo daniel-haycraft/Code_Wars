@@ -113,3 +113,84 @@ def ips_between(start, end):
     return x -y
 print(ips_between("10.0.0.0", "10.0.0.50"))
 print(ips_between("20.0.0.10", "20.0.1.0"))
+
+# see graphic in instructions for visual explanation of the permission and user data structures
+import unittest
+
+class Authorization:
+    def __init__(self, permissions, users):
+        self.permissions = permissions
+        self.users = users
+    
+    def list_permissions(self, user_id):
+        for user in users:
+            if user['id'] == user_id:
+                return user
+
+    def check_permitted(self, permission_name, user_id):
+        li_perm = self.list_permissions(user_id=user_id)
+        rolies = li_perm['roles']
+        count = 0
+        for per in permissions:
+            if per['role'] in rolies:
+                if per['active'] == True and per['name'] == permission_name:
+                    return True, count
+        return False
+            
+                
+                        
+
+
+# @rtype: list of strings
+# @returns: a list of all the active permission names that the user with the corresponding user_id has
+# @note: The order in which the permission names are returned is not important
+# @example: listPermissions(1) ➡ ["View Orders", "Block User Account"] (purchased widgets not included since it is not active)
+       
+
+
+    
+
+# @rtype: boolean value
+# @returns: true or false based on if the user with the corresponding user_id has the role that corresponds with the specific permission_name and that particular permission is active
+# @example: Example (Based on data from graphic)
+# checkPermitted("scooters near me", 2) ➡ true
+# checkPermitted("scooters near me", 1) ➡ false
+    
+
+
+permissions = [
+    { "role": "superuser", "name": "lock user account", "active": True },
+    { "role": "superuser", "name": "unlock user account", "active": True },
+    { "role": "superuser", "name": "purchase widgets", "active": False },
+    { "role": "charger", "name": "view pick up locations", "active": True },
+    { "role": "rider", "name": "view my profile", "active": True },
+    { "role": "rider", "name": "scooters near me", "active": True },
+]
+
+users = [
+    { "id": 1, "name": "Anna Administrator", "roles": ["superuser"] },
+    { "id": 2, "name": "Charles N. Charge", "roles": ["charger", "rider"] },
+    { "id": 7, "name": "Ryder", "roles": ["rider"] },
+    { "id": 11, "name": "Unregistered Ulysses", "roles": [] },
+    { "id": 18, "name": "Tessa Tester", "roles": ["beta tester"] },
+]
+
+
+
+# print(Authorization(permissions, users).list_permissions(2))
+print(Authorization(permissions, users).check_permitted("scooters near me", 7))
+
+my_new = []
+def beeramid(bonus, price):
+    beers  = bonus // price
+    levels = 0
+    
+    while beers >= (levels + 1) ** 2:
+        levels += 1
+        beers  -= levels ** 2
+    
+    return levels
+
+
+
+print(beeramid(21, 1.5))
