@@ -28,11 +28,19 @@
 
 # startthree = time.time()
 
-def asum( nums, target):
-        results = [(i, j) for i in range(len(nums)) for j in range(i+1, len(nums)) if nums[i] + nums[j] == target]
-        return results[0]
-print(asum([3,2,4], 6))
+# def asum( nums, target):
+#         results = [(i, j) for i in range(len(nums)) for j in range(i+1, len(nums)) if nums[i] + nums[j] == target]
+#         return results[0]
+# print(asum([3,2,4], 6))
 
 # endthree = time.time()
 # print("The 3rd time of execution of above program is :",
 #       (endthree-startthree) * 10**3, "ms")
+
+def twoSum(nums, target):
+    mine = []
+    results = [mine.append(n) if nums[n]+ nums[n+1] == target else None
+        for n in range(len(nums))]
+    return tuple(mine)
+
+print(twoSum([3,2,4], 6))

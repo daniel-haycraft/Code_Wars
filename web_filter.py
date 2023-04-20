@@ -45,18 +45,18 @@ from plyer import notification
 #     ticker = ticker
 # )
 
-ur= "https://www.google.com/search?q=" + 'macbook pro'
-response = requests.get(ur)
-webbrowser.open(ur)
-soup = BeautifulSoup(response.content, "html.parser")
-res = soup.find_all('span')
-for r in res:
-    if r.text == '$':
-        print(r)
+# ur= "https://www.google.com/search?q=" 
+# response = requests.get(ur)
+# webbrowser.open(ur)
+# soup = BeautifulSoup(response.content, "html.parser")
+# res = soup.find_all('span')
+# for r in res:
+#     if r.text == '$':
+#         print(r)
 
-def noti_squad(title, message, app_name, timeout, ticker):
-    pass
-    # webbrowser.open(ur)
+# def noti_squad(title, message, app_name, timeout, ticker):
+#     pass
+#     # webbrowser.open(ur)
 
 
 
